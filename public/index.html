@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/bonka.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+
+    <title></title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      
+    </div>
+      <button onClick='gerti()' id="gerti" >Spausk mane</button>
+  <script>
+   
+    async function gerti() {
+      var title = document.getElementById("TITILE")
+      var button = document.getElementById("gerti")
+      var paper = document.getElementById("rotatable-image")
+      paper.style.display = 'inline';
+      button.style.display = 'none';
+      title.style.display = 'block';
+      while (true) {
+        rotateImage(10)
+        await delay(0.1)
+      }
+    }
+    let currentRotation = 0;
+    async function delay(delayInms) {
+      return new Promise(resolve  => {
+        setTimeout(() => {
+          resolve(2);
+        }, delayInms *1000);
+      });
+    }
+    
+    function rotateImage(degrees) {
+        currentRotation += degrees;
+        document.getElementById('rotatable-image').style.transform = `rotate(${currentRotation}deg)`;
+    }
+
+</script>
+  </body>
+</html>
